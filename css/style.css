@@ -1,0 +1,32 @@
+:root {
+    --fheader: ;
+    --ftexto: ;
+
+    --primario: #86EAC2;
+    --secundario: #E27B60;
+    --claros: #F0F2F0;    
+    --medios: #777777;
+    --oscuros: #10191C;
+    --negros: #000000;
+}
+
+
+/*Globales*/
+
+html {
+    font-size: 62.5%;       /* 1rem = 10px */
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: auto;
+    background-color: var(--medios);
+}
+
+.wd100 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
