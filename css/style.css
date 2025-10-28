@@ -40,8 +40,7 @@ img {
 
 body {
     height: auto;
-    background-color: var(--medios);
-    background-color: var(--oscuros);
+    background-color: var(--blanco);
 }
 
 h1 {
@@ -87,7 +86,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primario);
+    background-color: var(--negro);
 }
 
 .navlogo {
@@ -105,17 +104,6 @@ nav ul {
     height: 100%;
     width: 30%;
     left: 60%;
-    bottom: 0;
-    border-left: 1px solid var(--negro);
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    list-style: none;
-    border-left: 1px solid var(--negro);
-    height: 100%;
 }
 
 nav li a {
@@ -126,12 +114,12 @@ nav li a {
     font-family: var(--ftexto);
     font-size: 1.5rem;
     font-weight: 400;
-    color: var(--oscuros);
+    color: var(--blanco);
     transition: color 0.2s ease;
 }
 
 nav li a:hover {
-    color: var(--blanco);
+    color: var(--primario);
 }
 
 /*Contenido*/
@@ -139,7 +127,7 @@ nav li a:hover {
 /*intro - sección 01*/
 
 .contenido-uno {
-    background-image: url(/img/fondo_s01v2_Mesa\ de\ trabajo\ 1.webp);
+    background-image: url(/img/hero1.webp);
     width: 100%;
     max-width: 1920px;
     aspect-ratio: 1920 / 864; /* misma proporción que la imagen */
@@ -150,40 +138,40 @@ nav li a:hover {
 }
 
 .textosc1 {
+    background-color: var(--blanco);
+    border-radius: 50px 50px 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-
-.h1c1 {
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     left: 60%;
-    width: 35%;
-    color: var(--blanco);
-    padding: 2rem;
-    
-
+    top: 60%;
+    height: 40%;
+    width: 30%;
 }
 
 .p1c1 {
     position: relative;
-    left: 60%;
-    width: 30%;
-    color: var(--blanco);
+    top: 10%;
+    color: var(--negro);
     padding: 2rem;
+    border-radius: 50px;
+}
+
+#desplazarabajo {
+    margin-bottom: 1rem;
+    width: 40px;
+    height: 50px;
 }
 
 
 /*intro - sección 02*/
 
 .contenido-dos {
-    background-image: url(/img/fondo_s01v2_Mesa\ de\ trabajo\ 1.webp);
     width: 100%;
     max-width: 1920px;
-    aspect-ratio: 1920 / 864; /* misma proporción que la imagen */
-    background-color: var(--oscuros);
+    background-color: var(--blanco);
     background-size: contain;
     background-repeat: no-repeat;
 }
