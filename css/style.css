@@ -187,6 +187,7 @@ nav li a:hover {
 .contenido-dos {
     width: 100%;
     max-width: 1920px;
+    height: 93vh;
     background-color: var(--blanco);
     background-size: contain;
     background-repeat: no-repeat;
@@ -194,26 +195,85 @@ nav li a:hover {
 
 .textosc2 {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+    align-items: flex-end;
+    height: 25%;
+    width: 100vw;
 }
 
 .h1c2 {
     position: relative;
-    left: 60%;
-    width: 35%;
-    color: var(--blanco);
-    padding: 2rem;
-    
-
+    width: 60%;
+    padding: 2rem 2rem 1rem 2rem;  
+    color: var(--negro);
+    text-align: right;
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: 80px;
+    font-weight: 600; 
 }
 
 .p1c2 {
     position: relative;
-    left: 60%;
     width: 30%;
-    color: var(--blanco);
-    padding: 2rem;
+    color: var(--negro);
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.indexserv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.serv {
+  width: 100%;
+  height: 5vh;
+  transition: height 0.6s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.serv.activo {
+  height: 70%;
+}
+
+.serv h2 {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    padding-left: 61%;
+    color: var(--negro);
+    font-weight: 400;
+    font-size: 2.1rem;
+    }
+.serv1 h2 { background: var(--primario); }
+.serv2 h2 { background: var(--secundario); }
+.serv3 h2 { background: var(--blanco); }
+.serv4 h2 { background: var(--oscuros); color: var(--blanco); }
+.serv5 h2 { background: var(--negro); color: var(--blanco) }
+
+.contenido-serv {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.serv1 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
+.serv2 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
+.serv3 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
+.serv4 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
+.serv5 .contenido-serv { background-image: url(/img/pruebamuest.webp); } 
+
+@keyframes pulso-suave {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.02); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Solo los servicios inactivos */
+.serv:not(.activo) {
+  animation: pulso-suave 3s ease-in-out infinite;
 }

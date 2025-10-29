@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .to("#fila3", { opacity: 0.3, duration: dur }, `+=${dur / 2}`);
 });
 
+// Modo de fusión
 document.addEventListener("DOMContentLoaded", () => {
   const gradient = document.querySelector(".cursor-gradient");
   let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
@@ -35,5 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       },
     });
+  });
+});
+
+//serv activo
+
+const servicios = document.querySelectorAll(".serv");
+
+servicios.forEach(serv => {
+  serv.addEventListener("click", () => {
+    servicios.forEach(s => s.classList.remove("activo"));
+    serv.classList.add("activo");
   });
 });
