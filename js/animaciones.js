@@ -39,6 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//botón desplazarabajo
+
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollTrigger = document.querySelector("#desplazarabajo");
+
+  scrollTrigger.addEventListener("click", () => {
+    gsap.to(window, {
+      duration: 1, // duración del scroll (en segundos)
+      scrollTo: { y: ".contenido-dos", offsetY: 0 }, // destino
+      ease: "power2.inOut" // suavidad de movimiento
+    });
+  });
+});
+
 //serv activo
 
 const servicios = document.querySelectorAll(".serv");
@@ -49,3 +63,4 @@ servicios.forEach(serv => {
     serv.classList.add("activo");
   });
 });
+

@@ -94,7 +94,6 @@ nav {
     left: 10%;
 }
 
-/* header navbar user list */
 nav ul {
     position: absolute;
     display: flex;
@@ -122,19 +121,30 @@ nav li a:hover {
     color: var(--primario);
 }
 
-/*Contenido*/
 
+/*Contenido*/
 /*intro - sección 01*/
 
 .contenido-uno {
+    position: relative;
+    width: 100vw;
+    height: 93vh;
+    background-color: var(--oscuros);
+    margin-top: 7vh;
+    overflow: hidden;
+}
+
+.imgheroc1 {
+    position: absolute;
+    top: 0;
+    left: 0;
     background-image: url(/img/hero1.webp);
     width: 100%;
-    max-width: 1920px;
-    aspect-ratio: 1920 / 864; /* misma proporción que la imagen */
-    background-color: var(--oscuros);
-    background-size: contain;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    margin-top: 7vh;
+    z-index: 0;
 }
 
 .cursor-gradient {
@@ -143,7 +153,6 @@ nav li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
     mix-blend-mode: exclusion;
     background: radial-gradient(
         circle at center,
@@ -151,20 +160,22 @@ nav li a:hover {
         rgba(255, 255, 255, 0) 40%
     );
     transition: background 0.1s ease;
+    z-index: 1;
 }
 
 .textosc1 {
+    position: absolute;
+    left: 60%;
+    bottom: 0%;
     background-color: var(--blanco);
     border-radius: 50px 50px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    left: 60%;
-    top: 60%;
     height: 40%;
     width: 30%;
+    z-index: 2;
 }
 
 .p1c1 {
@@ -176,6 +187,8 @@ nav li a:hover {
 }
 
 #desplazarabajo {
+    cursor: pointer;
+    pointer-events: auto;
     margin-bottom: 1rem;
     width: 40px;
     height: 50px;
@@ -185,8 +198,8 @@ nav li a:hover {
 /*intro - sección 02*/
 
 .contenido-dos {
-    width: 100%;
-    max-width: 1920px;
+    position: relative;
+    width: 100%;    
     height: 93vh;
     background-color: var(--blanco);
     background-size: contain;
@@ -194,6 +207,7 @@ nav li a:hover {
 }
 
 .textosc2 {
+    position: relative;
     display: flex;
     align-items: flex-end;
     height: 25%;
@@ -201,54 +215,59 @@ nav li a:hover {
 }
 
 .h1c2 {
-    position: relative;
+    position: absolute;
     width: 60%;
-    padding: 2rem 2rem 1rem 2rem;  
+    max-width: 60%;
+    max-height: 100%;
     color: var(--negro);
     text-align: right;
     text-transform: uppercase;
     line-height: 1;
-    font-size: 80px;
-    font-weight: 600; 
+    font-size: clamp(2rem, 4vw + 2rem, 90px);
+    font-weight: 600;
 }
 
 .p1c2 {
-    position: relative;
+    position: absolute;
+    width: 30%;
+    left: 60%;
     width: 30%;
     color: var(--negro);
-    padding: 2rem 2rem 2rem 2rem;
+    padding-left: 2rem;
 }
 
 .indexserv {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 100%;
-  height: 75vh;
-  overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
 }
 
 .serv {
-  width: 100%;
-  height: 5vh;
-  transition: height 0.6s ease;
-  overflow: hidden;
-  cursor: pointer;
+    width: 100%;
+    height: 5vh;
+    transition: height 0.6s ease;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .serv.activo {
-  height: 70%;
+    height: 70%;
 }
 
 .serv h2 {
-    height: 5vh;
-    display: flex;
-    align-items: center;
-    padding-left: 61%;
-    color: var(--negro);
-    font-weight: 400;
-    font-size: 2.1rem;
-    }
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        padding-left: 61%;
+        color: var(--negro);
+        font-weight: 400;
+        font-size: 2.1rem;
+}
+
 .serv1 h2 { background: var(--primario); }
 .serv2 h2 { background: var(--secundario); }
 .serv3 h2 { background: var(--blanco); }
@@ -256,9 +275,9 @@ nav li a:hover {
 .serv5 h2 { background: var(--negro); color: var(--blanco) }
 
 .contenido-serv {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .serv1 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
@@ -266,14 +285,3 @@ nav li a:hover {
 .serv3 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
 .serv4 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
 .serv5 .contenido-serv { background-image: url(/img/pruebamuest.webp); } 
-
-@keyframes pulso-suave {
-  0%   { transform: scale(1); opacity: 1; }
-  50%  { transform: scale(1.02); opacity: 0.9; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Solo los servicios inactivos */
-.serv:not(.activo) {
-  animation: pulso-suave 3s ease-in-out infinite;
-}
