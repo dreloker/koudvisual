@@ -16,28 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Modo de fusión
-document.addEventListener("DOMContentLoaded", () => {
-  const gradient = document.querySelector(".cursor-gradient");
-  let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+const cursor = document.querySelector('.cursor-gradient');
 
-  document.addEventListener("mousemove", (e) => {
-    gsap.to(pos, {
-      duration: 1.7, // velocidad del seguimiento
-      x: e.clientX,
-      y: e.clientY,
-      ease: "power2.out",
-      onUpdate: () => {
-        gradient.style.background = `
-          radial-gradient(
-            circle at ${pos.x}px ${pos.y}px,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0) 40%
-          )
-        `;
-      },
-    });
-  });
+document.addEventListener('mousemove', e => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+  cursor.style.clipPath = `circle(20vw at ${mouseX}px ${mouseY}px)`;
 });
+
 
 //botón desplazarabajo
 
@@ -64,3 +50,14 @@ servicios.forEach(serv => {
   });
 });
 
+
+//animaciones exclusivas servicios
+
+const serviciosserv = document.querySelectorAll(".services");
+
+serviciosserv.forEach(services => {
+  services.addEventListener("click", () => {
+    serviciosserv.forEach(s => s.classList.remove("activo"));
+    services.classList.add("activo");
+  });
+});
