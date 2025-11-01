@@ -1,6 +1,6 @@
 // desplazarabajo
 document.addEventListener("DOMContentLoaded", () => {
-  const dur = 0.5; // duración del ciclo de transición
+  const dur = 0.3; // duración del ciclo de transición
   const tl = gsap.timeline({ repeat: -1, defaults: { ease: "sine.inOut" } });
 
   // valores base
@@ -52,12 +52,35 @@ servicios.forEach(serv => {
 
 
 //animaciones exclusivas servicios
+// Animaciones de entrada
+gsap.fromTo(".imgservices", 
+  { x: "-10%", opacity: 0, filter: "blur(8px)" },
+  { x: "0%", opacity: 1, filter: "blur(0px)", duration: 1.2, ease: "power3.out" }
+);
 
-const serviciosserv = document.querySelectorAll(".services");
+gsap.to(".img-overlay", { opacity: 1, duration: 1.5, delay: 0.2 });
 
-serviciosserv.forEach(services => {
-  services.addEventListener("click", () => {
-    serviciosserv.forEach(s => s.classList.remove("activo"));
-    services.classList.add("activo");
+gsap.from(".services", {
+  y: 40,
+  opacity: 0,
+  stagger: 0.15,
+  duration: 1,
+  ease: "power2.out",
+  delay: 0.6
+});
+
+// Interacción con los servicios
+const servicios = document.querySelectorAll(".services");
+
+servicios.forEach(service => {
+  service.addEventListener("click", () => {
+    servicios.forEach(s => s.classList.remove("activo"));
+    service.classList.add("activo");
+
+    // animación GSAP al activar
+    gsap.fromTo(service, 
+      { scale: 0.95 }, 
+      { scale: 1, duration: 0.5, ease: "power2.out" }
+    );
   });
 });
