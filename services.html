@@ -17,7 +17,7 @@
 <body>
 
     <header>
-        <nav>
+        <nav class="navprincipal">
             <div class="navlogo">
                 imagenlogo
             </div>
@@ -30,51 +30,32 @@
         </nav>
     </header>
 
-    <main class="contenidoservicios">
-        
-        <section id="imgservices" class="imgservices">
-            <div class="papel">
-                <div class="mitad izquierda"></div>
-                <div class="mitad derecha"></div>
-            </div>
-            <div class="cursor-gradient"></div>
-        </section>
+    <main class="contenidomain-serv">
 
-        <section id="serviciosintro" class="serviciosintro">
-            <div class="services branding">
-                    <h2 class="servh2">Branding e identidad visual</h2>
-                    <div class="contenido">
-                    </div>
+        <section class="intro-servicios">
+            <div class="menu-servicio">
+                <button class="b-branding bserv"  data-servicio="branding">Branding e identidad visual</button>
+                <button class="b-web bserv"  data-servicio="web">Diseño web personalizado</button>
+                <button class="b-diseno bserv"  data-servicio="grafico">Diseño gráfico impreso y digital</button>
+                <button class="b-ilustracion bserv"  data-servicio="ilustracion">Ilustración y elementos visuales</button>
             </div>
-            <div class="services web">
-                    <h2 class="servh2">Diseño web personalizado</h2>
-                    <div class="contenido">
-                    </div>
-            </div>
-            <div class="services design">
-                    <h2 class="servh2">Diseño gráfico impreso y digital</h2>
-                    <div class="contenido">
-                    </div>
-            </div>
-            <div class="services ilust">
-                    <h2 class="servh2">Ilustración y elementos visuales</h2>
-                    <div class="contenido">
-                    </div>
-            </div>
-            <div class="services consulta">
-                    <h2 class="servh2">Consultoría gráfica</h2>
-                    <div class="contenido">
-                    </div>
-            </div>
+            <div class="titulo-servicio">
+                <h2>Diseño web personalizado</h2>
+		    </div>
+		    <div class="descripcion-servicio">
+                <p>Creación de sitios web con enfoque visual y estructural adaptado a cada proyecto. Diseño centrado en la experiencia del usuario, la jerarquía visual y la claridad comunicacional, integrando funcionalidad y estética en equilibrio.</p>
+		    </div>
         </section>
 
     </main>
     
 <!-- GSAP -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
 <!-- scripts -->
-<script src="js/animaciones.js"></script>
+<script src="./js/animaciones.js"></script>
 
 </body>
 </html>

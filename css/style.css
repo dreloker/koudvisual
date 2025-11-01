@@ -4,7 +4,7 @@
 
     --primario: #86eac2;
     --secundario: #b2857d;
-    --claros: #dff7ec;   
+    --claros: #8a94f0;   
     --oscuros: #171717; 
     --blanco: #ffffff;
     --negro: #000000;
@@ -64,7 +64,7 @@ h3 {
 p {
     font-family: var(--ftexto);
     font-size: 1.7rem;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--medios);
 }
 
@@ -81,7 +81,7 @@ header {
     z-index: 1000;
 }
 
-nav {
+.navprincipal {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -94,7 +94,7 @@ nav {
     left: 10%;
 }
 
-nav ul {
+.navprincipal ul {
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -105,7 +105,7 @@ nav ul {
     left: 60%;
 }
 
-nav li a {
+.navprincipal li a {
     position: relative;
     display: block;
     margin-bottom: 1rem;
@@ -117,7 +117,7 @@ nav li a {
     transition: color 0.2s ease;
 }
 
-nav li a:hover {
+.navprincipal li a:hover {
     color: var(--primario);
 }
 
@@ -139,6 +139,7 @@ nav li a:hover {
 .imgheroc1 {
     position: absolute;
     background-image: url(/img/hero1.webp);
+    top: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -286,78 +287,125 @@ nav li a:hover {
 
 
 /*-------------------------------------------------------------------------------*/
-.contenidoservicios {
-  position: relative;
-  width: 100vw;
-  height: 53vh;
-  top: 7vh;
-  display: flex;
-  align-items: flex-end;
+
+/*services.html*/
+.contenidomain-serv {
+    position: relative;
+    top: 7vh;
+    width: 100vw;
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-/* Imagen principal */
-.imgservices {
-  position: relative;
-  width: 60%;
-  height: 100%;
-  background-image: url('/img/hero1.webp');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
+/*Introducción a servicios*/
+/*menu*/
+.intro-servicios {
+    position: absolute;
+    width: 80%;
+    height: 30vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.img-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
-  opacity: 0;
+.menu-servicio {
+    height: 37.5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
-.cursor-gradient {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 60%);
-  mix-blend-mode: soft-light;
-  clip-path: circle(20vw at 50% 50%);
-  pointer-events: none;
+/*base general*/
+.menu-servicio button {
+    all: unset;
+    display: block;
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--ftexto);
+    cursor: pointer;
+    height: 4vh;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+    border-color: var(--negro);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        height 0.6s ease;
 }
 
-/* Panel derecho */
-.serviciosintro {
-  position: absolute;
-  left: 60%;
-  width: 40%;
-  height: 100%;
-  background-color: var(--secundario);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+/*quitar color por defecto*/
+.menu-servicio button {
+    background-color: transparent;
 }
 
-.services {
-  width: 100%;
-  height: 15%;
-  transition: height 0.6s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  overflow: hidden;
+/*colores base por botón*/
+.b-branding:hover {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+.b-web:hover {
+    background-color: var(--secundario);
+    color: var(--blanco);
+}
+.b-diseno:hover {
+    background-color: var(--claros);
+    color: var(--blanco);
+}
+.b-ilustracion:hover {
+    background-color: var(--oscuros);
+    color: var(--blanco);
 }
 
-.servh2 {
-  font-weight: 400;
-  font-size: 2.1rem;
-  padding: 2rem;
+/*clic (botón activo)*/
+.menu-servicio button.activo {
+    color: var(--blanco);
+    pointer-events: none;
+    font-weight: 600;
 }
 
-.services.activo {
-  height: 80%;
+.b-branding.activo {
+    background-color: var(--primario);
 }
 
-.branding { background: var(--primario); }
-.web { background: var(--secundario); }
-.design { background: var(--blanco); }
-.ilust { background: var(--oscuros); color: var(--blanco); }
-.consulta { background: var(--negro); color: var(--blanco); }
+.b-web.activo {
+    background-color: var(--secundario);
+}
+
+.b-diseno.activo {
+    background-color: var(--claros);
+}
+
+.b-ilustracion.activo {
+    background-color: var(--negro);
+}
+
+
+/*título servicios*/
+.titulo-servicio {
+    height: 25%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    font-size: clamp(2rem, 4vw + 1rem, 90px);
+    border: 1px solid var(--negro);
+}
+
+.titulo-servicio h2 {
+    font-size: clamp(2rem, 3vw, 70px);
+    text-transform: uppercase;
+}
+
+/*descripción servicios*/
+.descripcion-servicio {
+    height: 37.5%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    border: solid var(--negro);
+    border-width: 0 1px 1px 1px;
+}
