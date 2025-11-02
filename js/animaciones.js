@@ -67,14 +67,90 @@ if (servs.length > 0) {
 // Servicios
 // Menú serv
 
-document.querySelectorAll(".menu-servicio button").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // quitar clase activo de todos
-    document
-      .querySelectorAll(".menu-servicio button")
-      .forEach((b) => b.classList.remove("activo"));
+const botones = document.querySelectorAll(".menu-servicio button");
+const tituloBox = document.querySelector(".titulo-servicio");
+const tituloTexto = tituloBox.querySelector("h2");
+const descBox = document.querySelector(".descripcion-servicio");
 
-    // aplicar solo al clickeado
+const descripciones = {
+  branding: [
+    "Desarrollo de identidad visual coherente con la personalidad de tu marca.",
+    "Diseño de logotipos, paletas de color y lineamientos visuales para destacar en tu sector."
+  ],
+  web: [
+    "Creación de sitios web con enfoque visual y estructural adaptado a cada proyecto.",
+    "Diseño centrado en la experiencia del usuario, la jerarquía visual y la claridad comunicacional."
+  ],
+  grafico: [
+    "Diseño de piezas impresas y digitales que comunican de manera clara y visualmente atractiva.",
+    "Aplicaciones gráficas coherentes con la identidad de marca en diversos soportes."
+  ],
+  ilustracion: [
+    "Ilustraciones personalizadas para reforzar el carácter visual de tus proyectos.",
+    "Creación de recursos visuales que aportan estilo, narrativa y originalidad."
+  ]
+};
+
+botones.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // estado visual de botones
+    botones.forEach((b) => b.classList.remove("activo"));
     btn.classList.add("activo");
+
+    const servicio = btn.dataset.servicio;
+    const textos = descripciones[servicio];
+    if (!textos) return;
+
+    // capturamos nodos actuales (título y párrafos)
+    const currentTitle = tituloTexto;
+    const currentParas = Array.from(descBox.querySelectorAll("p"));
+
+    // creamos timeline
+    const tl = gsap.timeline();
+
+    // --- SALIDA: animar fuera los textos existentes (solo nodos) ---
+    // animamos los párrafos (si existen)
+    if (currentParas.length) {
+      tl.to(currentParas, {
+        x: -40,
+        opacity: 0,
+        duration: 0.33,
+        stagger: 0.05,
+        ease: "power2.in"
+      }, 0); // empezar en t=0
+    }
+
+    // animamos el título al mismo tiempo
+    tl.to(currentTitle, {
+      x: -30,
+      opacity: 0,
+      duration: 0.33,
+      ease: "power2.in"
+    }, 0);
+
+    // --- REEMPLAZO: al terminar la salida reemplazamos el contenido ---
+    tl.add(() => {
+      // nuevo título
+      tituloTexto.textContent = btn.textContent;
+      // nueva descripción (insertamos <p> dinámicamente)
+      descBox.innerHTML = textos.map(p => `<p>${p}</p>`).join("");
+    });
+
+    // --- ENTRADA: animamos los nodos nuevos ---
+    tl.add(() => {
+      const newTitle = tituloTexto; // elemento ya actualizado
+      const newParas = Array.from(descBox.querySelectorAll("p"));
+
+      // entrada del título (desde la derecha)
+      gsap.fromTo(newTitle, { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" });
+
+      // entrada de párrafos con stagger (desplazamiento lateral)
+      gsap.fromTo(newParas,
+        { x: 40, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: "power3.out" }
+      );
+    });
+
+    // fin del click handler
   });
 });

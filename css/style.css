@@ -8,6 +8,7 @@
     --oscuros: #171717; 
     --blanco: #ffffff;
     --negro: #000000;
+    --gclaro: #7a7a7a;
 }
 
 /*Utilidades*/
@@ -341,6 +342,7 @@ header {
 /*quitar color por defecto*/
 .menu-servicio button {
     background-color: transparent;
+    color: var(--gclaro);
 }
 
 /*colores base por botón*/
@@ -393,6 +395,7 @@ header {
     align-items: center;
     font-size: clamp(2rem, 4vw + 1rem, 90px);
     border: 1px solid var(--negro);
+    background-color: transparent;
 }
 
 .titulo-servicio h2 {
@@ -405,7 +408,9 @@ header {
     height: 37.5%;
     padding: 2rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    color: var(--gclaro);
     border: solid var(--negro);
     border-width: 0 1px 1px 1px;
 }
+
