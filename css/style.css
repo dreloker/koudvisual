@@ -3,12 +3,10 @@
     --ftexto: 'Montserrat', Sans-serif;
 
     --primario: #86eac2;
-    --secundario: #b2857d;
-    --claros: #8a94f0;   
-    --oscuros: #171717; 
+    --secundario: #6a59b2;
+    --claros: #7c7c7c;   
+    --negro: #171717; 
     --blanco: #ffffff;
-    --negro: #000000;
-    --gclaro: #7a7a7a;
 }
 
 /*Utilidades*/
@@ -131,7 +129,7 @@ header {
     display:block;
     width: 100vw;
     height: 73vh;
-    background-color: var(--oscuros);
+    background-color: var(--negro);
     top: 7vh;
     overflow: hidden;
 
@@ -271,7 +269,7 @@ header {
 .serv1 h2 { background: var(--primario); }
 .serv2 h2 { background: var(--secundario); }
 .serv3 h2 { background: var(--blanco); }
-.serv4 h2 { background: var(--oscuros); color: var(--blanco); }
+.serv4 h2 { background: var(--negro); color: var(--blanco); }
 .serv5 h2 { background: var(--negro); color: var(--blanco) }
 
 .contenido-serv {
@@ -339,7 +337,7 @@ header {
 
 .menu-servicio button {
     background-color: transparent;
-    color: var(--gclaro);
+    color: var(--claros);
 }
 
 .b-branding:hover {
@@ -355,7 +353,7 @@ header {
     color: var(--blanco);
 }
 .b-ilustracion:hover {
-    background-color: var(--oscuros);
+    background-color: var(--negro);
     color: var(--blanco);
 }
 
@@ -406,7 +404,7 @@ header {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    color: var(--gclaro);
+    color: var(--claros);
     border: solid var(--negro);
     border-width: 0 1px 1px 1px;
 }
