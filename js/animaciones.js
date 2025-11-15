@@ -103,7 +103,7 @@ botones.forEach((btn) => {
 
     // capturamos nodos actuales (título y párrafos)
     const currentTitle = tituloTexto;
-    const currentParas = Array.from(descBox.querySelectorAll("p"));
+    const currentParas = Array.from(descBox.querySelectorAll(".descripcion-servicio"));
 
     // creamos timeline
     const tl = gsap.timeline();
@@ -114,15 +114,15 @@ botones.forEach((btn) => {
       tl.to(currentParas, {
         x: -40,
         opacity: 0,
-        duration: 0.33,
-        stagger: 0.05,
+        duration: 0.1,
+        stagger: 0,
         ease: "power2.in"
-      }, 0); // empezar en t=0
+      }, 0.3); // empezar en t=0
     }
 
     // animamos el título al mismo tiempo
     tl.to(currentTitle, {
-      x: -30,
+      x: -15,
       opacity: 0,
       duration: 0.33,
       ease: "power2.in"
@@ -141,16 +141,88 @@ botones.forEach((btn) => {
       const newTitle = tituloTexto; // elemento ya actualizado
       const newParas = Array.from(descBox.querySelectorAll("p"));
 
-      // entrada del título (desde la derecha)
-      gsap.fromTo(newTitle, { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" });
+      // entrada del título (desde la derecha)  
+      gsap.fromTo(newTitle, { x: 10, opacity: 1 }, { x: 0, opacity: 1, duration: 0.1, ease: "power3.out" });
 
       // entrada de párrafos con stagger (desplazamiento lateral)
       gsap.fromTo(newParas,
-        { x: 40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: "power3.out" }
+        { x: 5, opacity: 0 },
+        { x: 0, opacity: 1, duration: 1, stagger: 0, ease: "power3.out" }
       );
     });
 
     // fin del click handler
   });
+}); 
+
+const cards = document.querySelectorAll('.planes-servicio > div');
+
+window.addEventListener("mousemove", (e) => {
+
+    // Primero medimos las distancias del cursor a cada tarjeta
+    const distances = [];
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        distances.push(dist);
+    });
+
+    // Distancia mínima (tarjeta más cercana)
+    const minDist = Math.min(...distances);
+
+    cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+
+        // Centro de cada tarjeta
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+
+        // Magnitud (distancia)
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        // ====================
+        // INCLINACIÓN CONSTANTE (según dirección)
+        // ====================
+        const mag = dist || 1; 
+        const ndx = dx / mag;
+        const ndy = dy / mag;
+
+        const tiltX = -ndy * 5; 
+        const tiltY =  ndx * 5;
+
+        // ====================
+        // ELEVACIÓN RELATIVA
+        // ====================
+        // Este valor queda entre 1 (la más cercana) y >1 las más lejanas
+        const normalized = dist / minDist;
+
+        // Le damos pesos:
+        // cercanía  →  sube más
+        // lejanía   →  sube menos
+        let liftVH;
+
+        if (normalized < 1.1) {
+            liftVH = 53 ;  // muy cerca
+        } else if (normalized < 7) {
+            liftVH = 7;   // distancia media
+        } else {
+            liftVH = 3;   // lejana
+        }
+
+        gsap.to(card, {
+            rotationX: tiltX,
+            rotationY: tiltY,
+            y: `-${liftVH}vh`,
+            transformPerspective: 900,
+            ease: "power2.out",
+            duration: 0.25
+        });
+    });
 });

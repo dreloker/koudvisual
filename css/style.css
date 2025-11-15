@@ -62,7 +62,7 @@ h3 {
 
 p {
     font-family: var(--ftexto);
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: 300;
     color: var(--medios);
 }
@@ -221,7 +221,8 @@ header {
     text-align: right;
     text-transform: uppercase;
     line-height: 1;
-    font-size: clamp(2rem, 4vw + 1rem, 90px);
+    font-size: clamp(2rem, 4vw + 0.5rem, 90px);
+    padding: 2rem 2rem -0.1rem 2rem;
     font-weight: 600;
 }
 
@@ -263,14 +264,13 @@ header {
     padding-left: 61%;
     color: var(--negro);
     font-weight: 400;
-    font-size: 2.1rem;
+    font-size: 1.7rem;
 }
 
 .serv1 h2 { background: var(--primario); }
-.serv2 h2 { background: var(--secundario); }
-.serv3 h2 { background: var(--blanco); }
-.serv4 h2 { background: var(--negro); color: var(--blanco); }
-.serv5 h2 { background: var(--negro); color: var(--blanco) }
+.serv2 h2 { background: var(--blanco); }
+.serv3 h2 { background: var(--claros); color: var(--blanco); }
+.serv4 h2 { background: var(--secundario); color: var(--blanco); }
 
 .contenido-serv {
     height: 100%;
@@ -282,7 +282,6 @@ header {
 .serv2 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
 .serv3 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
 .serv4 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
-.serv5 .contenido-serv { background-image: url(/img/pruebamuest.webp); } 
 
 
 /*-------------------------------------------------------------------------------*/
@@ -306,14 +305,17 @@ header {
     height: 30vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    justify-content: flex-end;
 }
 
 .menu-servicio {
-    height: 37.5%;
+    height: 13.5%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    border-left: 1px solid var(--negro);
 }
 
 /*Botón*/
@@ -326,7 +328,7 @@ header {
     font-family: var(--ftexto);
     cursor: pointer;
     height: 4vh;
-    border-width: 1px 1px 0px 1px;
+    border-width: 0px 1px 1px 0px;
     border-style: solid;
     border-color: var(--negro);
     transition:
@@ -366,6 +368,7 @@ header {
 
 .b-branding.activo {
     background-color: var(--primario);
+    border
 }
 
 .b-web.activo {
@@ -404,6 +407,8 @@ header {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    position: relative;
+    justify-content: center;
     color: var(--claros);
     border: solid var(--negro);
     border-width: 0 1px 1px 1px;
@@ -428,21 +433,36 @@ header {
     background-position: center;
 }
 
+.planesserv {
+    z-index: 27;
+}
+
 .planes-servicio {
     position: absolute;
-    top: 80%;
+    top: 42%;
+    left: 10%;
     width: 80%;
     height: 70vh;
     display: flex;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 2rem;
 }
-
+    
 .planes-servicio > div {
     flex: 1;
     background: var(--blanco);
     border: 1px solid var(--negro);
-    padding: 2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem 2rem 2rem;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    perspective: 900px;
+    will-change: transform;
+}   
+
+.planes-servicio h3 {
+    text-align: center;
+    color: var(--claros);    
 }
+
+
 

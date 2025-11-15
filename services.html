@@ -33,15 +33,16 @@
     <main class="contenidomain-serv">
 
         <section class="intro-servicios">
+            <div class="titulo-servicio">
+                <h2>¡Explora los servicios!</h2>
+		    </div>
             <div class="menu-servicio">
                 <button class="b-branding"  data-servicio="branding">Branding e identidad visual</button>
                 <button class="b-web"  data-servicio="web">Diseño web personalizado</button>
                 <button class="b-diseno"  data-servicio="grafico">Diseño gráfico impreso y digital</button>
                 <button class="b-ilustracion"  data-servicio="ilustracion">Ilustración y elementos visuales</button>
             </div>
-            <div class="titulo-servicio">
-                <h2>¡Explora los servicios!</h2>
-		    </div>
+
 		    <div class="descripcion-servicio">
                 <p>Creación de sitios web con enfoque visual y estructural adaptado a cada proyecto.</p> 
                 <p>Diseño centrado en la experiencia del usuario, la jerarquía visual y la claridad comunicacional, integrando funcionalidad y estética en equilibrio.</p>
@@ -49,19 +50,22 @@
         </section>
 
         <section class="imgprecio-servicios">
+            <div class="cursor-gradient"></div>
             <div class="imgservicio"></div>
-            <div class="planes-servicio">
-                <div class="plan-basico">
-                    <h3>El precio más económico, solo lo esencial</h3>
-                    <p class="precio"></p>
+        </section>
+        <section class="planesserv">
+            <div class="plan planes-servicio">
+                <div class="plan-basico" data-depth="20">
+                        <h3>Básico</h3>
+                        <p class="precio"></p>
                 </div>
-                <div class="plan-estandar">
-                    <h3>El plan regular</h3>
-                    <p class="precio"></p>
+                <div class="plan plan-estandar"  data-depth="40">
+                        <h3>Estándar</h3>
+                        <p class="precio"></p>
                 </div>
-                <div class="plan-integral">
-                    <h3>El servicio pensado para grandes empresas</h3>
-                    <p class="precio"></p>
+                <div class="plan plan-integral" data-depth="60">
+                        <h3>Integral</h3>
+                        <p class="precio"></p>
                 </div>
             </div>
         </section>
@@ -72,6 +76,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
 
 <!-- scripts -->
 <script src="./js/animaciones.js"></script>
