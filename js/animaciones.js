@@ -1,6 +1,6 @@
 // desplazarabajo
 document.addEventListener("DOMContentLoaded", () => {
-  const dur = 0.3; // duración del ciclo de transición
+  const dur = 0.16; // duración del ciclo de transición
   const tl = gsap.timeline({ repeat: -1, defaults: { ease: "sine.inOut" } });
 
 
@@ -27,18 +27,50 @@ document.addEventListener('mousemove', e => {
 });
 
 
-//botón desplazarabajo
+// botón desplazarabajo
 document.addEventListener("DOMContentLoaded", () => {
+  // Registrar plugin (si no está registrado ya)
+  if (gsap && gsap.registerPlugin) {
+    try {
+      gsap.registerPlugin(ScrollToPlugin);
+    } catch (err) {
+      // si ya estaba registrado, no pasa nada
+      // console.warn("ScrollToPlugin ya registrado o no disponible", err);
+    }
+  }
+
   const scrollTrigger = document.querySelector("#desplazarabajo");
+  const targetSelector = ".contenido-dos";
+
+  if (!scrollTrigger) {
+    console.warn("#desplazarabajo no encontrado en el DOM.");
+    return;
+  }
 
   scrollTrigger.addEventListener("click", () => {
+    const targetEl = document.querySelector(targetSelector);
+    if (!targetEl) {
+      console.warn(`Selector ${targetSelector} no encontrado.`);
+      return;
+    }
+
+    // calcular la altura del navbar en píxeles (7vh)
+    const navbarHeightPx = window.innerHeight * 0.06;
+
+    // obtener la posición vertical absoluta del elemento destino
+    const targetY = targetEl.getBoundingClientRect().top + window.scrollY;
+
+    // objetivo final restando la altura del navbar
+    const finalY = targetY - navbarHeightPx;
+
     gsap.to(window, {
-      duration: 1, // duración del scroll (en segundos)
-      scrollTo: { y: ".contenido-dos", offsetY: 0 }, // destino
-      ease: "power2.inOut" // suavidad de movimiento
+      duration: 1,
+      scrollTo: { y: finalY },
+      ease: "power2.inOut"
     });
   });
 });
+
 
 
 //serv activo
@@ -209,7 +241,7 @@ window.addEventListener("mousemove", (e) => {
         let liftVH;
 
         if (normalized < 1.1) {
-            liftVH = 53 ;  // muy cerca
+            liftVH = 17 ;  // muy cerca
         } else if (normalized < 7) {
             liftVH = 7;   // distancia media
         } else {

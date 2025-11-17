@@ -124,13 +124,22 @@ header {
 /*index.html*/
 /*intro - sección 01*/
 
+.contenidomain {
+    position: relative;
+    top: 7vh;
+    width: 100vw;
+    height: 166vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .contenido-uno {
     position: relative;
     display:block;
     width: 100vw;
     height: 73vh;
     background-color: var(--negro);
-    top: 7vh;
     overflow: hidden;
 
 }
@@ -208,8 +217,9 @@ header {
     position: relative;
     display: flex;
     align-items: flex-end;
-    height: 25%;
+    height: 20vh;
     width: 100vw;
+    padding: 2rem;
 }
 
 .h1c2 {
@@ -221,16 +231,15 @@ header {
     text-align: right;
     text-transform: uppercase;
     line-height: 1;
-    font-size: clamp(2rem, 4vw + 0.5rem, 90px);
-    padding: 2rem 2rem -0.1rem 2rem;
-    font-weight: 600;
+    font-size: clamp(2rem, 4vw + 0.5rem, 75px);
+    font-weight: 900;
+    padding-right: 2rem;
 }
 
 .p1c2 {
     position: absolute;
     width: 30%;
     left: 60%;
-    width: 30%;
     color: var(--negro);
     padding-left: 2rem;
 }
@@ -241,7 +250,7 @@ header {
     flex-direction: column;
     justify-content: flex-end;
     width: 100%;
-    height: 75vh;
+    height: 50vh;
     overflow: hidden;
 }
 
@@ -265,12 +274,12 @@ header {
     color: var(--negro);
     font-weight: 400;
     font-size: 1.7rem;
+    background-color: var(--blanco);
+    border: 1px solid var(--negro);
 }
 
-.serv1 h2 { background: var(--primario); }
-.serv2 h2 { background: var(--blanco); }
-.serv3 h2 { background: var(--claros); color: var(--blanco); }
-.serv4 h2 { background: var(--secundario); color: var(--blanco); }
+.serv1 h2 { border-top: 2px solid var(--negro);}
+.serv4 h2 { border-bottom: 2px solid var(--negro);}
 
 .contenido-serv {
     height: 100%;
@@ -439,7 +448,7 @@ header {
 
 .planes-servicio {
     position: absolute;
-    top: 42%;
+    top: 45%;
     left: 10%;
     width: 80%;
     height: 70vh;
@@ -454,6 +463,7 @@ header {
     border: 1px solid var(--negro);
     padding: 1rem 2rem 2rem 2rem;
     box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 50px 50px 0 0;
     transform-style: preserve-3d;
     perspective: 900px;
     will-change: transform;
