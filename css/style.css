@@ -314,17 +314,24 @@ header {
     height: 30vh;
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: sticky;
     justify-content: flex-end;
+    top: 0;
+    z-index: 100;
 }
-
+/*
+.titulo-servicio, .menu-servicio {
+    position: sticky;
+}
+*/
 .menu-servicio {
-    height: 13.5%;
+    height: 20%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     border-left: 1px solid var(--negro);
+    background-color: var(--negro);
 }
 
 /*Botón*/
@@ -335,74 +342,46 @@ header {
     text-align: center;
     font-size: 1.5rem;
     font-family: var(--ftexto);
+    font-weight: 600;
     cursor: pointer;
-    height: 4vh;
-    border-width: 0px 1px 1px 0px;
+    height: 100%;
+    border-width: 1px 1px 0px 0px;
     border-style: solid;
     border-color: var(--negro);
     transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        height 0.6s ease;
+        background-color 0.7s ease;
 }
 
 .menu-servicio button {
-    background-color: transparent;
+    background-color: var(--blanco);
     color: var(--claros);
 }
 
-.b-branding:hover {
-    background-color: var(--primario);
-    color: var(--blanco);
-}
-.b-web:hover {
+
+.menu-servicio button:hover {
     background-color: var(--secundario);
     color: var(--blanco);
-}
-.b-diseno:hover {
-    background-color: var(--claros);
-    color: var(--blanco);
-}
-.b-ilustracion:hover {
-    background-color: var(--negro);
-    color: var(--blanco);
+    font-weight: 600;
 }
 
 /*clic (botón activo)*/
 .menu-servicio button.activo {
+    background-color: var(--primario);
     color: var(--blanco);
     pointer-events: none;
     font-weight: 600;
 }
 
-.b-branding.activo {
-    background-color: var(--primario);
-    border
-}
-
-.b-web.activo {
-    background-color: var(--secundario);
-}
-
-.b-diseno.activo {
-    background-color: var(--claros);
-}
-
-.b-ilustracion.activo {
-    background-color: var(--negro);
-}
-
-
 /*título*/
 .titulo-servicio {
     position: sticky;
-    height: 25%;
+    height: 30%;
     padding: 2rem;
     display: flex;
     align-items: center;
     font-size: clamp(2rem, 4vw + 1rem, 90px);
     border: 1px solid var(--negro);
-    background-color: transparent;
+    background-color: var(--blanco);
 }
 
 .titulo-servicio h2 {
@@ -412,13 +391,15 @@ header {
 
 /*descripción*/
 .descripcion-servicio {
-    height: 37.5%;
+    height: 27%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     position: relative;
     justify-content: center;
-    color: var(--claros);
+    background-color: var(--blanco);
+    font-size: 2.1rem;
+    color: var(--negro);
     border: solid var(--negro);
     border-width: 0 1px 1px 1px;
 }
