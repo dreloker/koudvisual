@@ -70,93 +70,58 @@ p {
 
 /*Navbar*/
 
-header {
-    width: 100vw;
-    height: 7vh;
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    z-index: 2;
+}
+
+ nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--fheader);
+    font-weight: 400;
+    letter-spacing: -0.0125rem;
+    line-height: 1;
+    display: inline-block;
+    height: max-content;
+    color: var(--blanco);
+    background-color: var(--negro);
+    border: 1px solid var(--secundario);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+ }
+
+.nav-logo,
+.nav-cta {
+    flex: 1;
+    display: flex;
+}
+
+.nav-cta {
+    justify-content: flex-end;
+}
+
+.nav-links {
+    flex: 2;
     display: flex;
     justify-content: center;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
+    gap: 0.25rem;   
 }
 
-.navprincipal {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--negro);
-}
-
-.navlogo {
-    position: absolute;
-    left: 10%;
-}
-
-.navprincipal ul {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    list-style: none;
-    height: 100%;
-    width: 30%;
-    left: 60%;
-}
-
-.navprincipal li a {
-    position: relative;
-    display: block;
-    margin-bottom: 1rem;
-    text-decoration: none;
-    font-family: var(--ftexto);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--blanco);
-    transition: color 0.2s ease;
-}
-
-.navprincipal li a:hover {
-    color: var(--primario);
+.nav-logo a {
+    background-color: var(--primario);
+    border: none;
 }
 
 
 /*index.html*/
 /*intro - sección 01*/
 
-.contenidomain {
-    position: relative;
-    top: 7vh;
-    width: 100vw;
-    height: 166vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contenido-uno {
-    position: relative;
-    display:block;
-    width: 100vw;
-    height: 73vh;
-    background-color: var(--negro);
-    overflow: hidden;
-
-}
-
-.imgheroc1 {
-    position: absolute;
-    background-image: url(/img/hero1.webp);
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-
-.cursor-gradient {
+/*.cursor-gradient {
     position: absolute;
     top: 0;
     left: 0;
@@ -164,296 +129,96 @@ header {
     height: 100%;
     mix-blend-mode: exclusion;
     background: white;
-    clip-path: circle(70vw at center); /* tamaño del círculo */
-    pointer-events: none; /* evita bloquear interacciones */
+    clip-path: circle(70vw at center);
+    pointer-events: none;
     transition: clip-path 0.7s ease-out;
     z-index: 1;
 }
+*/
+/*-------------------------------------------------------------------------------*/
 
-.textosc1 {
-    position: absolute;
-    left: 60%;
-    bottom: 0%;
-    background-color: var(--blanco);
-    border-radius: 50px 50px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 40%;
-    width: 30%;
-    z-index: 2;
-}
-
-.p1c1 {
+.container {
     position: relative;
-    top: 10%;
-    color: var(--negro);
-    padding: 2rem;
-    border-radius: 50px;
-}
-
-#desplazarabajo {
-    cursor: pointer;
-    pointer-events: auto;
-    margin-bottom: 2rem;
-    width: 80px;
-    height: 100px;
-}
-
-
-/*intro - sección 02*/
-
-.contenido-dos {
-    position: relative;
-    width: 100%;    
-    height: 93vh;
-    background-color: var(--blanco);
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.textosc2 {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    height: 20vh;
-    width: 100vw;
-    padding: 2rem;
-}
-
-.h1c2 {
-    position: absolute;
-    width: 60%;
-    max-width: 60%;
-    max-height: 100%;
-    color: var(--negro);
-    text-align: right;
-    text-transform: uppercase;
-    line-height: 1;
-    font-size: clamp(2rem, 4vw + 0.5rem, 75px);
-    font-weight: 900;
-    padding-right: 2rem;
-}
-
-.p1c2 {
-    position: absolute;
-    width: 30%;
-    left: 60%;
-    color: var(--negro);
-    padding-left: 2rem;
-}
-
-.indexserv {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     width: 100%;
-    height: 50vh;
+    height: 100svh;
+    background-color: var(--negro);
     overflow: hidden;
 }
 
-.serv {
+.slider {
+    position: absolute;
     width: 100%;
-    height: 5vh;
-    transition: height 0.6s ease;
+    height: 100svh;
+    perspective: 250px;
+    perspective-origin: 50% 100%;
     overflow: hidden;
-    cursor: pointer;
 }
 
-.serv.activo {
-    height: 70%;
-}
-
-.serv h2 {
-    height: 5vh;
+.slide {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate3d(-50%,-50%, 0px);
+    width: 50%;
+    height: 400px;
+    border-radius: 0.25rem;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding-left: 61%;
-    color: var(--negro);
-    font-weight: 400;
-    font-size: 1.7rem;
-    background-color: var(--blanco);
-    border: 1px solid var(--negro);
+    will-change: transform, opacity;
+    overflow: hidden;    
 }
 
-.serv1 h2 { border-top: 2px solid var(--negro);}
-.serv4 h2 { border-bottom: 2px solid var(--negro);}
-
-.contenido-serv {
+.slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
 }
 
-.serv1 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
-.serv2 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
-.serv3 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
-.serv4 .contenido-serv { background-image: url(/img/pruebamuest.webp); }
+.slide-title {
+    color: var(--primario);
+    font-family: var(--fheader);
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: -0.15rem;
+}
 
+.slide-title .word {
+    will-change: transform;
+}
+
+
+@media (max-width: 1000px) {
+    .nav-links {
+        display: none;
+    }
+
+    footer p:nth-child(2) {
+        text-align: right;
+    }
+
+    .slide {
+        width: 70%;
+    }
+
+    .slide-title {
+        font-size: 2rem;
+        letter-spacing: 0;
+    }
+}
 
 /*-------------------------------------------------------------------------------*/
 
-/*services.html*/
-.contenidomain-serv {
-    position: relative;
-    top: 7vh;
-    width: 100vw;
-    height: 200vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-/*Introducción a servicios*/
-/*menu*/
-.intro-servicios {
-    width: 80%;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    justify-content: flex-end;
-    top: 0;
-    z-index: 100;
-}
-/*
-.titulo-servicio, .menu-servicio {
-    position: sticky;
-}
-*/
-.menu-servicio {
-    height: 20%;
+footer {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    border-left: 1px solid var(--negro);
-    background-color: var(--negro);
-}
-
-/*Botón*/
-.menu-servicio button {
-    all: unset;
-    display: block;
-    flex: 1;
-    text-align: center;
-    font-size: 1.5rem;
-    font-family: var(--ftexto);
-    font-weight: 600;
-    cursor: pointer;
-    height: 100%;
-    border-width: 1px 1px 0px 0px;
-    border-style: solid;
-    border-color: var(--negro);
-    transition:
-        background-color 0.7s ease;
-}
-
-.menu-servicio button {
-    background-color: var(--blanco);
-    color: var(--claros);
-}
-
-
-.menu-servicio button:hover {
-    background-color: var(--secundario);
-    color: var(--blanco);
-    font-weight: 600;
-}
-
-/*clic (botón activo)*/
-.menu-servicio button.activo {
-    background-color: var(--primario);
-    color: var(--blanco);
-    pointer-events: none;
-    font-weight: 600;
-}
-
-/*título*/
-.titulo-servicio {
-    position: sticky;
-    height: 30%;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    font-size: clamp(2rem, 4vw + 1rem, 90px);
-    border: 1px solid var(--negro);
-    background-color: var(--blanco);
-}
-
-.titulo-servicio h2 {
-    font-size: clamp(2rem, 3vw, 70px);
-    text-transform: uppercase;
-}
-
-/*descripción*/
-.descripcion-servicio {
-    height: 27%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
-    background-color: var(--blanco);
-    font-size: 2.1rem;
-    color: var(--negro);
-    border: solid var(--negro);
-    border-width: 0 1px 1px 1px;
-}
-
-/*Img servicios*/
-
-.imgprecio-servicios {
-    position: relative;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-    .imgservicio {
-    width: 100%;
-    height: 60vh;
-    background-image: url(/img/ancho.webp);
-    background-size: cover;
-    background-position: center;
-}
-
-.planesserv {
-    z-index: 27;
-}
-
-.planes-servicio {
-    position: absolute;
-    top: 45%;
-    left: 10%;
-    width: 80%;
-    height: 70vh;
+    padding: 1.5rem;
+    color: var(--secundario);
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    z-index: 2;
 }
-    
-.planes-servicio > div {
-    flex: 1;
-    background: var(--blanco);
-    border: 1px solid var(--negro);
-    padding: 1rem 2rem 2rem 2rem;
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 50px 50px 0 0;
-    transform-style: preserve-3d;
-    perspective: 900px;
-    will-change: transform;
-}   
-
-.planes-servicio h3 {
-    text-align: center;
-    color: var(--claros);    
-}
-
-
-
