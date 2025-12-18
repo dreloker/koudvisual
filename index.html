@@ -34,14 +34,21 @@
 
 <main class="container">
     <!-- Pantalla de introducción -->
-    <section class="intro-screen active">
-        <h1 class="intro-title">Servicios de diseño y comunicación visual</h1>
+    <section class="intro-screen active" id="intro-screen">
+        <h1 class="intro-title" id="intro-title">Servicios de diseño y comunicación visual</h1>
         <p class="intro-subtitle">Scroll para explorar</p>
-    </section>
-    
+    </section>    
     <!-- Slider (inicialmente oculto) -->
-    <div class="slider"></div>
-    <h2 class="main-title"></h2> <!-- ← Ahora es H2, no H1 -->
+    <section class="sliderserv">
+        <h3 class="intro-title" id="intro-title"></h3>
+        <h3 class="numservh3" id="numeroserv">00</h3>
+        <div class="slider"></div>
+        <h2 class="main-title"></h2>
+    </section> 
+    <section class="servCTA">
+        <div class="sCTA"> SERVICIOS </div>
+    </section>    
+
 </main>
 
     <footer>
@@ -53,6 +60,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
 
+<script src="./js/balatroShader.js"></script>
 <script type="module" src="./js/script.js"></script>
 
 </body>
