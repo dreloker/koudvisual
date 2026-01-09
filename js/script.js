@@ -247,7 +247,7 @@ const ImageSlider = {
         position: absolute;
         top: 0;
         left: ${-i * 100}%;
-        width: 1500%;
+        width: 2000%;
         height: 100%;
         object-fit: cover;
       `;
@@ -330,7 +330,7 @@ const ImageSlider = {
       
       gsap.to([newLayer1Blocks, newLayer2Blocks, newLayer3Blocks], {
         scaleY: 1,
-        duration: 0.3,
+        duration: 0.5,
         ease: "power3.out",
         stagger: 0.1,
         onComplete: () => {
@@ -350,7 +350,7 @@ const ImageSlider = {
 //===============================================
 const Autoplay = {
   interval: null,
-  delay: 1619,
+  delay: 700,
   
   start() {
     this.stop();
@@ -380,12 +380,12 @@ const Autoplay = {
 const Controls = {
   enabled: false,
   wheelAccumulator: 0,
-  wheelThreshold: 100,
+  wheelThreshold: 77,
   isWheelActive: false,
   touchStartY: 0,
   touchStartX: 0,
   isTouchActive: false,
-  touchThreshold: 50,
+  touchThreshold: 27,
   
   init() {
     this.setupWheelControl();

@@ -74,48 +74,60 @@ p {
 nav {
     position: fixed;
     width: 100%;
+    top: 0.7svh;
     padding: 1.5rem;
     display: flex;
     gap: 1.5rem;
     z-index: 2;
 }
 
- nav a {
+nav a {
     text-decoration: none;
     text-transform: uppercase;
     font-family: var(--fheader);
     font-weight: 400;
     letter-spacing: -0.0125rem;
     line-height: 1;
-    display: inline-block;
-    height: max-content;
+    height: auto;
     color: var(--blanco);
     background-color: var(--negro);
     border: 1px solid var(--secundario);
     border-radius: 0.25rem;
-    padding: 0.5rem;
+    padding: 1.17rem;
+
  }
 
-.nav-logo,
-.nav-cta {
-    flex: 1;
+.nav-logo {
+    height: 5%;
+    width: 30%;
     display: flex;
+    justify-content: baseline;
+}
+
+.nav-logo svg{
+    width: 50%;
 }
 
 .nav-cta {
-    justify-content: flex-end;
+    width: 15%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+
 }
 
 .nav-links {
-    flex: 2;
+    width: 55%;
     display: flex;
-    justify-content: center;
-    gap: 0.25rem;   
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.25rem;  
 }
 
 .nav-logo a {
     background-color: var(--primario);
     border: none;
+    justify-content: flex-end;
 }
 
 
@@ -236,7 +248,7 @@ nav {
     left: 15%;
     color: var(--black);
     font-family: var(--fheader);
-    font-size: clamp(1.5rem, 5vw + 2rem, 17rem);
+    font-size: clamp(1.5rem, 5vw , 10rem);
     font-weight: 100;
     letter-spacing: -0.15rem;
     text-transform: uppercase;
@@ -249,22 +261,22 @@ nav {
     min-height: 20svh;
     display: flex;
     flex-wrap: wrap; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 15%;
+    left: 15%;
     z-index: 10;
     font-family: var(--fheader);
-    font-size: clamp(1rem, 7vw + 1rem, 20rem);
+    font-size: clamp(1rem, 3vw, 15rem);
     font-weight: 900;
     letter-spacing: -0.15rem;
     text-transform: uppercase;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 
 .main-title > div { 
     display: inline-block;
     padding: 1rem;
+
 }
 
 .main-title .word {
